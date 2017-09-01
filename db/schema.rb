@@ -10,10 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901211849) do
+ActiveRecord::Schema.define(version: 20170901213836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cruises", force: :cascade do |t|
+    t.string "ship"
+    t.string "project"
+    t.string "field"
+    t.string "location_start"
+    t.string "location_end"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.string "forecast"
+    t.string "responsible"
+    t.string "crew"
+    t.string "comment"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "data", force: :cascade do |t|
+    t.string "type"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "point"
+    t.integer "value"
+    t.integer "depth"
+    t.string "comment"
+    t.string "plot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "model"
+    t.string "year"
+    t.string "last_calibrated"
+    t.string "company"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "sponsor"
+    t.string "institution"
+    t.string "field"
+    t.string "photo"
+    t.string "responsible"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.integer "budget"
+    t.integer "participant"
+    t.string "members"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
