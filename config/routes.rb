@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
-  get 'pages/about'
+  get "about", to: "pages#about"
 
   devise_for :users
 
