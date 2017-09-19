@@ -10,9 +10,18 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to root_path do %>
+          <%= content_tag :span, "Home", :class => "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+
+          <%= link_to about_path do %>
+            <%= content_tag :span, "About", :class => "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+
+          <%= link_to projects_path do %>
+            <%= content_tag :span, "Projects", :class => "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

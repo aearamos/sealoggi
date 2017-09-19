@@ -1,2 +1,17 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h2>Start a new project</h2>
+
+<%= simple_form_for(@project) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :institution, required: true, autofocus: true %>
+    <%= f.input :description, required: true, autofocus: true %>
+    <%= f.input :field, required: true, autofocus: true %>
+    <%= f.input :date_start, required: true, autofocus: true %>
+    <%= f.input :date_end, required: true, autofocus: true %>
+    <%= f.input :responsible, required: true, autofocus: true %>
+  </div>
+
+<% end %>
+
+ <%= link_to "submit", user_path(current_user), class: "btn login" %><
