@@ -4,6 +4,7 @@ class EquipmentsController < ApplicationController
   end
 
   def create
+    @equipment.user = current_user
     @equipment = Equipment.new(equipment_params)
     if @equipment.save
       redirect_to equipment_path(@equipment)
