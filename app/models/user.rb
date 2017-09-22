@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
   has_many :cruises, dependent: :destroy
+  has_many :equipments, dependent: :destroy
 
 end
