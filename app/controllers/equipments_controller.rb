@@ -4,8 +4,11 @@ class EquipmentsController < ApplicationController
   end
 
   def create
-    @equipment.user = current_user
     @equipment = Equipment.new(equipment_params)
+    @equipment.user = current_user
+    @cruise = Cruise.find(params[:cruise_id])
+    @equipment.cruise = @cruise
+
     if @equipment.save
       redirect_to equipment_path(@equipment)
     else
